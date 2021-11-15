@@ -1,38 +1,110 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.app {
+  height: 100vh;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+}
+
+.app__container {
+  padding: 20px;
+  background-color: whitesmoke;
+  box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset,
+    rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
+  border-radius: 6px;
+}
+
+.app__container-top {
+  padding-bottom: 15px;
+  border-bottom: 1px solid chocolate;
+}
+
+.app__container-top > input {
+  outline: none;
+  border: none;
+  padding: 7px 20px;
+  border-radius: 10px;
+  margin-right: 10px;
+  letter-spacing: 2px;
+}
+
+.app__container-top > button {
+  background: #569e3d linear-gradient(#79d858, #569e3d) repeat-x;
+  border: 1px solid #4a993e;
+  color: #fff;
+  padding: 5px 20px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  border-radius: 3px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: border 0.3s, color 0.3s;
+}
+
+.app__container-top > button:hover {
+  border: 1px solid #40da29;
+  color: rgb(201, 198, 57);
+}
+
+.app__container-top > button:active {
+  transform: scale(1.01);
+  border: 1px solid #40da29;
   color: white;
+  transition: border 0.3s, color 0s;
 }
 
-.App-link {
-  color: #61dafb;
+.app__container-top > button:disabled {
+  background: gray;
+  color: rgb(206, 194, 194);
+  border: 1px solid gray;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.app__container-bottom {
+  margin-top: 10px;
+}
+
+.app__container-bottom--divider {
+  margin-top: 15px;
+  background-color: yellowgreen;
+  height: 1px;
+}
+
+.app__container-bottom-todos {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.anim1 {
+  position: absolute;
+  animation: delete 3s;
+}
+
+@keyframes delete {
+  0% {
+    opacity: 1;
+    transform: rotate(0) translate(0, 0);
+    padding: 10px;
+    background-color: white;
+    border-radius: 10px;
   }
+
+  100% {
+    opacity: 0;
+    transform: rotate(25deg) translate(60px, 120px);
+  }
+}
+
+.anim2 {
+  animation: add 2s;
+}
+
+@keyframes add {
+  from {
+    background: white;
+    transform: scale(0);
+  }
+
   to {
-    transform: rotate(360deg);
+    transform: scale(1);
   }
 }
